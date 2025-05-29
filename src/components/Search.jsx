@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const Search = () => {
+const Search = (props) => {
   return (
-    <div>Search</div>
-  )
-}
+    <div className="search">
+      <div>
+        <img src="/movieapp/search.svg" alt="search" />
+        <input
+          type="text"
+          placeholder="Search Movies"
+          value={props.searchTerm}
+        ></input>
+      </div>
+    </div>
+  );
+};
 
-export default Search
+export default Search;

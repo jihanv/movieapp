@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Search from './components/Search'
 
 const App = () => {
+
+  const [searchTerm, setSearchTerm] = useState('I AM BATMAN')
   return (
     <div>
       <div className='pattern'/>
@@ -10,7 +12,7 @@ const App = () => {
           <img src="/movieapp/hero.png" alt="Hero Banner" />
           <h1>Find <span className='text-gradient'>Movies</span></h1>
         </header>
-        <Search />
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
     </div>
   )
