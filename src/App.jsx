@@ -20,12 +20,14 @@ const App = () => {
 
   const fetchMovie = async () => {
     try {
-      fetch(
+      const endpoint = fetch(
         "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
         options
       )
-        .then((res) => res.json())
-        .then((res) => console.log(res));
+        // .then((res) => res.json())
+        // .then((res) => console.log(res))
+        const response = await fetch(endpoint, options)
+        alert(response)
     } catch (error) {
       console.error(error)
       setErrorMessage("Error fetching movie. Please try again later.");
@@ -33,7 +35,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log(API_KEY);
+    fetchMovie()
   }, []);
 
   return (
