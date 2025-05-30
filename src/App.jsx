@@ -24,15 +24,14 @@ const App = () => {
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const fetchMovie = async () => {
+  const fetchMovie = async (query="") => {
     try {
       setIsLoading(true)
       setErrorMessage("")
       
-      const endpoint = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc"
-      
-        // .then((res) => res.json())
-        // .then((res) => console.log(res))
+      const endpoint = query
+      ? `https://api.themoviedb.org/3/search/movie?query=${encodeURI(query)}`
+      : "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc"
         const response = await fetch(endpoint, options)
         
         if(!response.ok){
@@ -58,8 +57,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetchMovie()
-  }, []);
+    fetchMovie(searchTerm)
+  }, [searchTerm]);
 
   return (
     <div>
