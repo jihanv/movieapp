@@ -1,12 +1,13 @@
 import React from "react";
 
 const MovieCard = (props) => {
+  console.log(props.movie.poster_path)
   return (
     <div className="movie-card">
       <img
         src={
           props.movie.poster_path
-            ? `https:image.tmdb.org/t/p/w500/${props.movie.poster_path}`
+            ? `http://image.tmdb.org/t/p/w500/${props.movie.poster_path}`
             : "/movieapp/no-movie.png"
         }
         alt={props.movie.title}
