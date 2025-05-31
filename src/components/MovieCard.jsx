@@ -1,7 +1,6 @@
 import React from "react";
 
 const MovieCard = (props) => {
-  console.log(props.movie.poster_path)
   return (
     <div className="movie-card">
       <img
